@@ -39,10 +39,17 @@ def create_app(test_config=None):
     def create_tables():
         db.create_all()
 
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
+    with app.app_context():
+        # a simple page that says hello
+        @app.route('/hello')
+        def hello():
+            return 'Hello, World!'
 
-    return app
+        from . import routes
+
+        # Import Dash application
+        from .dashboard.dashboard import init_dashboard
+        app = init_dashboard(app)
+
+        return app
 

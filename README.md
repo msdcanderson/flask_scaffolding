@@ -82,3 +82,7 @@ export FLASK_APP="flask_scaffolding"
 export FLASK_ENV="development"
 flask run
 ```
+
+## Integrating Dash into Flask
+
+[Source](https://hackersandslackers.com/plotly-dash-with-flask/)
